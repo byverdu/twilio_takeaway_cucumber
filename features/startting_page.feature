@@ -6,5 +6,6 @@ Feature: We want to order some food
 Scenario: Starting to order
 	Given  We are on the homepage
 	When   We see a form for name and telephone number
-	When   We enter our details
+	And    We enter our details
+	And    We submit our details
 	Then   We are log in and ready to order

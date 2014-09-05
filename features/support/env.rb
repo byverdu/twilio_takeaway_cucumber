@@ -8,14 +8,14 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
-Capybara.app = Twilio
+Capybara.app = TwilioTakeaway
 
-class TwilioWorld
+class TwilioTakeawayWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
 end
 
 World do
-  TwilioWorld.new
+  TwilioTakeawayWorld.new
 end

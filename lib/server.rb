@@ -1,12 +1,32 @@
 require 'sinatra/base'
+require './lib/loader'
 
-class Twilio < Sinatra::Base
+class TwilioTakeaway < Sinatra::Base
 
 	set :views, File.join(root, '..', "views")
-	#enable :sessions
+	
+	enable :sessions
+
+	CLIENT = User.new()
 
   get '/' do
+
+  	puts CLIENT
+
     erb :index
+  end
+
+  post '/' do
+
+
+
+
+  	redirect to '/menu'
+  end
+
+  get '/menu' do
+
+  	erb :menu
   end
 
   # start the server if ruby file executed directly
