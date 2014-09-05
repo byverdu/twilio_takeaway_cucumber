@@ -11,3 +11,15 @@ end
 Given(/^Some takeaway restaurants$/) do
   expect(page).to have_selector('.restaurants > .vendor')
 end
+
+When(/^I am selecting a restaurant$/) do
+	first("button").click
+end
+
+Then(/^I will see the menu$/) do
+  expect(page).to have_content('scampi')
+end
+
+When(/^I am selecting the dishes$/) do
+  pending # express the regexp above with the code you wish you had
+end

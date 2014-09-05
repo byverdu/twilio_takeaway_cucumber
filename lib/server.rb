@@ -4,15 +4,16 @@ require './lib/loader'
 class TwilioTakeaway < Sinatra::Base
 
 	def add_restaurants
-		fisher     = Takeaway.new('Fishers'   ,'+44156982992')
-		gola       = Takeaway.new('Gola'      ,'+44156982992')
-		local_hero = Takeaway.new('Local Hero','+44156982992')
-		milano     = Takeaway.new('Milano'    ,'+44156982992')
+		fisher     = Takeaway.new('Fishers'   ,'+44156982992',[Dish.new('scampi',8.5),Dish.new('coleslaw',2.5),Dish.new('burger',4.5),Dish.new('coke',1.5),Dish.new('fish cake',5.5)])
+		gola       = Takeaway.new('Gola'      ,'+44156982992',[Dish.new('local_hero',8.5),Dish.new('coleslaw',2.5),Dish.new('burger',4.5),Dish.new('coke',1.5),Dish.new('fish cake',5.5)])
+		local_hero = Takeaway.new('Local Hero','+44156982992',[Dish.new('peror',8.5),Dish.new('coleslaw',2.5),Dish.new('burger',4.5),Dish.new('coke',1.5),Dish.new('fish cake',5.5)])
+		milano     = Takeaway.new('Milano'    ,'+44156982992',[Dish.new('si',8.5),Dish.new('coleslaw',2.5),Dish.new('burger',4.5),Dish.new('coke',1.5),Dish.new('fish cake',5.5)])
 
 		[fisher,gola,local_hero,milano]
 	end
 
-	set :views, File.join(root, '..', "views")
+	set :views        , File.join(root, '..', "views")
+	set :public_folder, File.join(root, '..', "public")
 	
 	enable :sessions
 
@@ -29,8 +30,6 @@ class TwilioTakeaway < Sinatra::Base
 
   	session['me'] = CLIENT.object_id
 
-  	puts session
-
 		redirect to '/menu'
   end
 
@@ -38,8 +37,7 @@ class TwilioTakeaway < Sinatra::Base
 
   	@restaurants = add_restaurants
 
-  	 #CLIENT.name = session['me']
-
+  	@client = CLIENT
 
   	erb :menu
   end

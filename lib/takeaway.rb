@@ -1,12 +1,10 @@
-require_relative "dish"
-
 class Takeaway
 
 	attr_accessor :name, :number, :menu
 
-	def initialize(name=nil, number=nil,menu=nil)
+	def initialize(name=nil, number=nil, menu)
 		@name    = name
 		@number  = number
-		@menu    =  []
+		@menu    = menu
 	end
 end
