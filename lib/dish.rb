@@ -7,5 +7,4 @@ class Dish
 		@price    = price
 		@quantity = 0
 	end
-
 end
