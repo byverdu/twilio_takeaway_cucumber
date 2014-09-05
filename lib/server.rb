@@ -1,8 +1,12 @@
 require 'sinatra/base'
 
 class Twilio < Sinatra::Base
+
+	set :views, File.join(root, '..', "views")
+	#enable :sessions
+
   get '/' do
-    'Hello Twilio!'
+    erb :index
   end
 
   # start the server if ruby file executed directly
