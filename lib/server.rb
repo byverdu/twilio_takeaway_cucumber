@@ -3,8 +3,13 @@ require './lib/loader'
 
 class TwilioTakeaway < Sinatra::Base
 
-	def method_name
-		
+	def add_restaurants
+		fisher     = Takeaway.new('Fishers'   ,'+44156982992')
+		gola       = Takeaway.new('Gola'      ,'+44156982992')
+		local_hero = Takeaway.new('Local Hero','+44156982992')
+		milano     = Takeaway.new('Milano'    ,'+44156982992')
+
+		[fisher,gola,local_hero,milano]
 	end
 
 	set :views, File.join(root, '..', "views")
@@ -31,6 +36,7 @@ class TwilioTakeaway < Sinatra::Base
 
   get '/menu' do
 
+  	@restaurants = add_restaurants
 
   	 #CLIENT.name = session['me']
 

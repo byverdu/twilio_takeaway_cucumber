@@ -1,7 +1,6 @@
 Feature: We want to order some food
-				 We decide to access to  the web
-				 Where we can order some food
-				 And receive them in one hour
+	We decide to access to  the web
+	Where we can order some food
 
 Scenario: Starting to order
 	Given  We are on the homepage

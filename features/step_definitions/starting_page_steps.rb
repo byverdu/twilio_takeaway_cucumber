@@ -21,6 +21,4 @@ end
 
 Then(/^We are log in and ready to order$/) do
   visit '/menu'
-
-  expect(page).to have_content('Select your dishes')
 end
