@@ -16,8 +16,12 @@ When(/^We enter our details$/) do
 end
 
 When(/^We submit our details$/) do
-  find('input[type=submit]').click
+  find('button').click
 end
+
+# When(/^If the user do not enter the fields, try again$/) do
+  
+# end
 
 Then(/^We are log in and ready to order$/) do
   visit '/menu'

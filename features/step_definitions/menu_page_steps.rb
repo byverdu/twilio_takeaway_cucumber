@@ -1,7 +1,7 @@
 Given(/^I am on the menu page$/) do
   visit '/menu'
 
-  expect(page).to have_content('Welcome to TwilioTakeaway')
+  expect(page).to have_content('TwilioTakeaway')
  end
 
 Given(/^I will see the user name$/) do
@@ -13,13 +13,13 @@ Given(/^Some takeaway restaurants$/) do
 end
 
 When(/^I am selecting a restaurant$/) do
-	first("button").click
+	first(".button").click
 end
 
 Then(/^I will see the menu$/) do
-  expect(page).to have_content('scampi')
+  expect(page).to have_content('Scampi')
 end
 
-When(/^I am selecting the dishes$/) do
-  pending # express the regexp above with the code you wish you had
-end
+# When(/^I am selecting the dishes$/) do
+#   pending # express the regexp above with the code you wish you had
+# end

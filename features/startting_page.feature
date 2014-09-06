@@ -7,4 +7,5 @@ Scenario: Starting to order
 	When   We see a form for name and telephone number
 	And    We enter our details
 	And    We submit our details
+	#And    If the user do not enter the fields, try again
 	Then   We are log in and ready to order

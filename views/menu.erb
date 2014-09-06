@@ -1,28 +1,31 @@
-<section>
-	<h1>Welcome to TwilioTakeaway</h1>
+<section class="menu">
 
-	<p>What do you fancy to eat today <%= @client.name %> </p>
+	<p>What do you fancy to eat today <span><%= @client.name %></span> </p>
 
 	<div class="restaurants">
 
 		<% @restaurants.map do |restaurant| %>
+			
 			<div class="vendor"> 
 
 				<h3> <%= restaurant.name  %> </h3>
 				
-				<p class="tel_num"> <%= restaurant.number %> </p>
+				<p> <%= restaurant.number %> </p>
 
 				<button class="button">Show menu</button>
 					
-				<ul class="dishes">	
+				<form action="/menu" method="post" class="dishes">	
 
 				<% restaurant.menu.map do |dish|  %>
 					
-					<li> <%= dish.name %> <span> <%= dish.price %> </span> </li>
+					<input type="checkbox" name="<%="#{dish.name.downcase}"%>"> <span> <%= dish.name %>  <%= dish.price %>£</span>
+					<input type="text"     name="<%="#{dish.quantity}"%>" placeholder="Quantity">
 				
 				<% end %>
+				
+				<button type="submit">Submit</button>
 
-				</ul>
+				</form>
 
 			</div>
 		<% end  %>

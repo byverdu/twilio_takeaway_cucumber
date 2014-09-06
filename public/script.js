@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 	$('.button').on('click', function() {
 
-	$(this).siblings().toggle();
+	$(this).next().toggle();
 	});
 });
 
