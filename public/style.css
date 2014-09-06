@@ -1,0 +1,122 @@
+/*********************************
+
+CSS file for TwilioTakeaway
+
+*********************************/
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+/* Reset css */
+
+*{
+	margin:  0;
+	padding: 0;
+	font-family: 'Poiret One', cursive;
+}
+
+body{ background: #BBEEFF }
+
+
+input{ display: block; } 
+
+
+button[type=submit]{ margin: 1%; padding: 4px }
+
+
+.wrapper{ width: 900px; margin: 0 auto; }
+
+header{ position: fixed; left: 30% }
+
+header h1 {
+	
+	font: 85px 'Lobster', cursive;
+	color: #FFEF31;
+	text-shadow: 3px 5px 5px black;
+}
+
+
+section.welcome{
+	
+	position: relative;
+	top: 150px;
+	height: 250px;
+	width: 400px;
+	margin: 0 auto;
+	background-color: rgba(255,255,255,0.8);
+	box-shadow: 1px 1px 2px,-1px -1px 2px,1px -1px 2px, -1px 1px 2px;
+}
+
+section.welcome h3{ font-size: 26px; padding: 7%; }
+
+
+section.welcome form fieldset{
+
+	width: 250px;
+	padding: 10%;
+	margin-left: 8%;
+}
+
+section.welcome form input {
+	
+	margin: 20px 25%;
+	font-size: 20px;
+	text-align: center;
+
+}
+
+section.welcome button{
+	width: 100px;
+	font-size: 25px;
+	padding: 5px;
+	border-radius: 20% 5%;
+	background: #FF4D32;
+	color: white;
+	margin-left: 37%;
+}
+
+section.menu { position: relative; top: 150px; }
+
+section.menu p{ font-size: 25px; }
+
+section.menu p > span{
+	
+	font: 45px 'Lobster', cursive;
+	color: #FFEF31;
+	text-shadow: 1px 3px black,-1px -1px black;
+}
+
+section.menu form input { margin-top: 10px; }
+
+form.dishes span{ position: relative; bottom: 17px; }
+
+form.dishes input[type=text]{
+
+	position: relative;
+	top: -20px;
+	left: 55px;
+	width: 50px;
+	text-align: center;
+}
+
+section.menu .vendor{
+
+	display: inline-table;
+	margin: 5% 1%;
+	padding: 1%;
+	text-align: center;
+	background: aliceblue;
+	border-radius: 4%;
+	border: 1px solid;
+	box-shadow: 1px 1px 1px;
+}
+
+section.menu .vendor h3{
+	
+	color: #FF2F1D;
+	text-shadow: -1px 2px #000;
+	font-size: 39px;
+}
+
+section.menu .button{ padding: 4px; margin: 5px 0; }
+
