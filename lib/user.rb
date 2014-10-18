@@ -13,7 +13,7 @@ class User
 		@name     = name
 		@number   = number
 		@status   = nil
-		@order = Order.new
+		@order    = Order.new
 	end
 
 	def place_order(dish, quantity)

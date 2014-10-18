@@ -9,7 +9,7 @@ describe User do
 	include Sms
 
 	let(:takeaway) { Takeaway.new('Fisherman','03487935472') }
-	let(:burger)  { Dish.new('scampi',7.5) }
+	let(:burger)  { Dish.new('scampi',7.5,3) }
 	let(:order)   { Order.new }
 
 	let(:user)    { User.new('Bob','07720860376') }

@@ -14,12 +14,12 @@
 
 				<button class="button">Show menu</button>
 					
-				<form action="/menu" method="post" class="dishes">	
+				<form action="/order" method="post" class="dishes">	
 
 				<% restaurant.menu.map do |dish|  %>
 					
 					<input type="checkbox" name="<%="#{dish.name.downcase}"%>"> <span> <%= dish.name %>  <%= dish.price %>£</span>
-					<input type="text"     name="<%="#{dish.quantity}"%>" placeholder="Quantity">
+					<input type="text"     name="quantity" placeholder="Quantity">
 				
 				<% end %>
 				

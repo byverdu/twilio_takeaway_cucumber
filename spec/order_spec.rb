@@ -4,8 +4,8 @@ require "user"
 
 describe Order do
   
-	let(:burger) { Dish.new('burger',5.50) }
-	let(:fries)  { Dish.new('fries' ,1.50) }
+	let(:burger) { Dish.new('burger',5.50,2) }
+	let(:fries)  { Dish.new('fries' ,1.50,3) }
 	let(:user)   { User.new }
 
 	it "will contain selected dishes" do

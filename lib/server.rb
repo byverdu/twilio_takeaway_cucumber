@@ -4,10 +4,10 @@ require './lib/loader'
 class TwilioTakeaway < Sinatra::Base
 
 	def add_restaurants
-		fisher     = Takeaway.new('Fishers'   ,'+44156982992', [Dish.new('Scampi',8.5),        Dish.new('Coleslaw',2.5),Dish.new('Burger' , 4.5), Dish.new('Coke',  1.5), Dish.new('Banana Fritter',5.5)])
-		gola       = Takeaway.new('Gola'      ,'+44563235789', [Dish.new('Rissotto',8.5),      Dish.new('Pizza'   ,9.5),Dish.new('Lassagna',4.5), Dish.new('Beer',  3.5), Dish.new('Tiramisu',   5.5)])
-		local_hero = Takeaway.new('Local Hero','+44247753221', [Dish.new('Scrambled Eggs',8.5),Dish.new('BLT     ',4.5),Dish.new('Pancake' ,4.5), Dish.new('Coffee',2.5), Dish.new('Apple Pie'  ,5.5)])
-		old_japan  = Takeaway.new('Milano'    ,'+64343674322', [Dish.new('Sushi',8.5),         Dish.new('Teriyaki',9.5),Dish.new('burger',  4.5), Dish.new('Sake',  4.5), Dish.new('Tea Truffel',5.5)])
+		fisher     = Takeaway.new('Fishers'   ,'+44156982992', [Dish.new('Scampi',8.5,0),        Dish.new('Coleslaw',2.5,0),Dish.new('Burger' , 4.5,0), Dish.new('Coke',  1.5,0), Dish.new('Banana Fritter',5.5,0)])
+		gola       = Takeaway.new('Gola'      ,'+44563235789', [Dish.new('Rissotto',8.5,0),      Dish.new('Pizza'   ,9.5,0),Dish.new('Lassagna',4.5,0), Dish.new('Beer',  3.5,0), Dish.new('Tiramisu',   5.5,0)])
+		local_hero = Takeaway.new('Local Hero','+44247753221', [Dish.new('Scrambled Eggs',8.5,0),Dish.new('BLT     ',4.5,0),Dish.new('Pancake' ,4.5,0), Dish.new('Coffee',2.5,0), Dish.new('Apple Pie'  ,5.5,0)])
+		old_japan  = Takeaway.new('Milano'    ,'+64343674322', [Dish.new('Sushi',8.5,0),         Dish.new('Teriyaki',9.5,0),Dish.new('burger',  4.5,0), Dish.new('Sake',  4.5,0), Dish.new('Tea Truffel',5.5,0)])
 
 		[fisher,gola,local_hero,old_japan]
 	end
@@ -30,6 +30,8 @@ class TwilioTakeaway < Sinatra::Base
 
   	session['me'] = CLIENT.object_id
 
+    puts params
+
 		redirect to '/menu'
   end
 
@@ -42,14 +44,21 @@ class TwilioTakeaway < Sinatra::Base
   	erb :menu
   end
 
-  post '/menu' do
+  post '/order' do
 
-  	@dish = params[:dish]
+    #CLIENT.place_order(params[:dish],params[:quantity])
 
-  	#CLIENT.place_order(@dish,1)
+  	@dishes   = params[:dish]#,params[:quantity]] #--> use to_sym
+    #quantity = params[:quantity]
 
-  	redirect to '/menu'
+  	#CLIENT.place_order(@dish,@quantity)
 
+    erb :order
+  end
+
+  get '/order' do
+
+    erb :order
   end
 
   # start the server if ruby file executed directly
