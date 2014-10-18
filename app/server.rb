@@ -1,5 +1,9 @@
 require 'sinatra/base'
-require './lib/loader'
+
+require_relative './lib/user'
+require_relative './lib/dish'
+require_relative './lib/order'
+require_relative './lib/takeaway'
 
 class TwilioTakeaway < Sinatra::Base
 
@@ -12,8 +16,8 @@ class TwilioTakeaway < Sinatra::Base
 		[fisher,gola,local_hero,old_japan]
 	end
 
-	set :views        , File.join(root, '..', "views")
-	set :public_folder, File.join(root, '..', "public")
+	set :views        , File.join(root, '..', "./app/views")
+	set :public_folder, File.join(root, '..', "./app/public")
 	
 	enable :sessions
 
@@ -28,9 +32,7 @@ class TwilioTakeaway < Sinatra::Base
   	CLIENT.name    = params[:client]
   	CLIENT.number  = params[:telephone]
 
-  	session['me'] = CLIENT.object_id
-
-    puts params
+  	session[:id] = CLIENT.object_id
 
 		redirect to '/menu'
   end
@@ -44,21 +46,19 @@ class TwilioTakeaway < Sinatra::Base
   	erb :menu
   end
 
-  post '/order' do
+  post '/menu' do
 
-    #CLIENT.place_order(params[:dish],params[:quantity])
-
-  	@dishes   = params[:dish]#,params[:quantity]] #--> use to_sym
+    @dishes   = params[:dish]#,params[:quantity]] #--> use to_sym
     #quantity = params[:quantity]
 
   	#CLIENT.place_order(@dish,@quantity)
 
-    erb :order
+    redirect '/order'
   end
 
   get '/order' do
-
-    erb :order
+    'order placed'
+    # erb :order
   end
 
   # start the server if ruby file executed directly

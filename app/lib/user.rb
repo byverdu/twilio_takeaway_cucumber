@@ -1,6 +1,6 @@
 require 'rubygems'
-require "./lib/order"
-require "./lib/hide"
+require_relative "order"
+require_relative "hide"
 
 
 class User

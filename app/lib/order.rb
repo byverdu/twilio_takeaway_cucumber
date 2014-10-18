@@ -1,4 +1,4 @@
-require "./lib/dish"
+require_relative "dish"
 
 class Order
 
