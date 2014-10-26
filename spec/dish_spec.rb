@@ -1,4 +1,4 @@
-require 'dish'
+require './app/lib/dish'
 
 describe Dish do
 

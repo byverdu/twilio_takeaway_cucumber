@@ -1,8 +1,8 @@
-require "user"
-require "order"
-require "dish"
-require "hide"
-require "takeaway"
+require "./app/lib/user"
+require "./app/lib/order"
+require "./app/lib/dish"
+require "./app/lib/hide"
+require "./app/lib/takeaway"
 
 describe User do
 

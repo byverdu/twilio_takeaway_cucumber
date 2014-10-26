@@ -1,6 +1,6 @@
-require "order"
-require "dish"
-require "user"
+require "./app/lib/order"
+require "./app/lib/dish"
+require "./app/lib/user"
 
 describe Order do
   

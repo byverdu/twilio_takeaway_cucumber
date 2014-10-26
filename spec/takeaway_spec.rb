@@ -1,4 +1,4 @@
-require "takeaway"
+require "./app/lib/takeaway"
 
 describe Takeaway do
 
