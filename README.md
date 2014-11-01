@@ -1,6 +1,5 @@
 
-## Takeaway system
-
+## Takeaway System
 
 Rewriting the challenge by adding a front end site where the user can interact with the page, place an order and receiving a confirmation message.
 
